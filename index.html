@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
+    <title>Text Analyzer</title>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <textarea v-bind:value="input" v-on:input="update" placeholder="Enter text here"></textarea>
+
+        <div id="output">
+            <h1>Text Statistics</h1>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Paragraphs</th>
+                        <td>{{ paragraphNum }}</td>
+                    </tr>
+                    <tr>
+                        <th>Sentences</th>
+                        <td>{{ sentenceNum }}</td>
+                    </tr>
+                    <tr>
+                        <th>Words</th>
+                        <td>{{ wordNum }}</td>
+                    </tr>
+                    <tr>
+                        <th>Characters</th>
+                        <td>{{ charNum }}</td>
+                    </tr>
+                    <tr>
+                        <th>Longest Word</th>
+                        <td>{{ longestWord }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div id="char-graph"></div>
+
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

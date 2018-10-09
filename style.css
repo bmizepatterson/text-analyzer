@@ -1,0 +1,60 @@
+html, body, #app {
+    margin:0;
+    height: 100%;
+    color: #333;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+textarea, #output {
+    display: inline-block;
+    width: 49%;
+    height: 100%;
+    vertical-align: top;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+textarea {
+    border: none;
+    border-right: 1px solid #ccc;
+    resize: none;
+    outline: none;
+    background-color: #f6f6f6;
+    font-size: 14px;
+    font-family: 'Monaco', courier, monospace;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-collapse: collapse;
+    line-height: 2;
+    vertical-align: middle;
+}
+
+tr:hover {
+    background-color: #eee;
+}
+
+th {
+    padding-left: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+td {
+    padding-right: 0.5rem;
+    text-align: right;
+    border-bottom: 1px solid #ccc;
+}
+
+#char-graph {
+    height: 200px;
+    border: 1px solid #ccc;
+}
+
+[v-cloak] {
+    display: none;
+}
