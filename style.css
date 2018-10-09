@@ -57,10 +57,11 @@ textarea {
 }
 
 #char-graph {
-    height: 200px;
+    height: 150px;
     width: 100%;
     border: 1px solid #ccc;
     border-collapse: collapse;
+    cursor: default;
 }
 
 #char-graph th {
@@ -68,7 +69,6 @@ textarea {
     width: 3.8%;
     font-size: 12px;
     text-align: center;
-    cursor: default;
 }
 
 #char-graph td {
@@ -93,12 +93,10 @@ textarea {
         display: block;
         height: 50%;
         width: 100%;
-        vertical-align: top;
-        box-sizing: border-box;
-        padding: 0 20px;
     }
 
     textarea {
         border-bottom: 1px solid #ccc;
+        padding-top: 40px;
     }
 }
