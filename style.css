@@ -51,25 +51,45 @@ textarea {
 }
 
 #char-graph {
+    height: 200px;
     width: 100%;
     border: 1px solid #ccc;
 }
 
 #char-graph th {
-    width: 1rem;
-    text-align: left;
+    height: 1rem;
+    font-size: 0.8rem;
+    text-align: center;
+    cursor: default;
 }
 
 #char-graph td {
-    text-align: left;
+    vertical-align: bottom;
 }
 
 #char-graph span {
     display:inline-block;
     background-color:green;
-    width: 0;
+    height: 0;
+    width: 100%;
+    vertical-align: bottom;
 }
 
 [v-cloak] {
     display: none;
+}
+
+@media only screen and (max-width:800px) {
+    textarea, #output {
+        display: block;
+        height: 50%;
+        width: 100%;
+        vertical-align: top;
+        box-sizing: border-box;
+        padding: 0 20px;
+    }
+
+    textarea {
+        border-bottom: 1px solid #ccc;
+    }
 }

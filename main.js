@@ -40,6 +40,10 @@ new Vue({
             let lengths = words.map((word) => word.length);
             let longest = lengths.indexOf(Math.max(...lengths));
             return words[longest];
+        },
+
+        lowerCaseInput: function() {
+            return this.input.toLowerCase();
         }
     },
 
@@ -48,26 +52,23 @@ new Vue({
             this.input = event.target.value;
         }, 300),
 
-        count: function(regex) {
-            return this.search(regex).length;
+        count: function(regex, lowerCase = false) {
+            return this.search(regex, lowerCase).length;
         },
 
-        search: function(regex) {
-            return (this.input || '').match(regex) || [];
+        search: function(regex, lowerCase = false) {
+            let searchText = lowerCase ? this.lowerCaseInput : this.input;
+            return (searchText || '').match(regex) || [];
         },
 
         letterRatio: function(letter) {
             if (this.input) {
-                let lowerCaseInput = this.input.toLowerCase();
                 let regex = new RegExp(letter, 'g');
-                // console.log(regex);
-                // console.log(this.count(regex), '/', this.letterNum);
-                let count = this.count(regex);
+                let count = this.count(regex, true);
                 if (count > this.commonChar.num) {
                     this.commonChar.char = letter;
                     this.commonChar.num = count;
                 }
-                // console.log(letter, result);
                 let result = Math.floor(count / this.letterNum * 100);
                 return result;
             }
