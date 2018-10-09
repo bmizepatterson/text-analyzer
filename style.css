@@ -25,7 +25,7 @@ textarea {
     padding: 20px;
 }
 
-table {
+#statistics {
     width: 100%;
     padding: 1rem;
     margin-bottom: 2rem;
@@ -34,25 +34,40 @@ table {
     vertical-align: middle;
 }
 
-tr:hover {
+#statistics tr:hover {
     background-color: #eee;
 }
 
-th {
+#statistics th {
     padding-left: 0.5rem;
     text-align: left;
     border-bottom: 1px solid #ccc;
 }
 
-td {
+#statistics td {
     padding-right: 0.5rem;
     text-align: right;
     border-bottom: 1px solid #ccc;
 }
 
 #char-graph {
-    height: 200px;
+    width: 100%;
     border: 1px solid #ccc;
+}
+
+#char-graph th {
+    width: 1rem;
+    text-align: left;
+}
+
+#char-graph td {
+    text-align: left;
+}
+
+#char-graph span {
+    display:inline-block;
+    background-color:green;
+    width: 0;
 }
 
 [v-cloak] {
