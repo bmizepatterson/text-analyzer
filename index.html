@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="app" v-cloak>
-        <textarea v-bind:value="input" v-on:input="update" placeholder="Enter text here"></textarea>
+        <textarea v-bind:value="input" v-on:input="update" placeholder="Enter text here" autofocus></textarea>
 
         <div id="output">
             <h1>Text Statistics</h1>
@@ -27,8 +27,12 @@
                         <td>{{ wordNum }}</td>
                     </tr>
                     <tr>
-                        <th>Characters</th>
+                        <th>Characters (with spaces)</th>
                         <td>{{ charNum }}</td>
+                    </tr>
+                    <tr>
+                        <th>Letters</th>
+                        <td>{{ letterNum }}</td>
                     </tr>
                     <tr>
                         <th>Longest Word</th>
@@ -42,6 +46,7 @@
         </div>
 
     </div>
+    <script src="https://unpkg.com/lodash@4.16.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="main.js"></script>
 </body>
