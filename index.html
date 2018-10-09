@@ -12,38 +12,40 @@
 
         <div id="output">
             <h1>Text Statistics</h1>
-            <table id="statistics">
-                <tbody>
-                    <tr>
-                        <th>Paragraphs</th>
-                        <td>{{ paragraphNum }}</td>
-                    </tr>
-                    <tr>
-                        <th>Sentences</th>
-                        <td>{{ sentenceNum }}</td>
-                    </tr>
-                    <tr>
-                        <th>Words</th>
-                        <td>{{ wordNum }}</td>
-                    </tr>
-                    <tr>
-                        <th>Characters (with spaces)</th>
-                        <td>{{ charNum }}</td>
-                    </tr>
-                    <tr>
-                        <th>Letters</th>
-                        <td>{{ letterNum }}</td>
-                    </tr>
-                    <tr>
-                        <th>Longest Word</th>
-                        <td>{{ longestWord }}</td>
-                    </tr>
-                    <tr>
-                        <th>Most Common Character</th>
-                        <td>{{ commonChar.char }}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="wrapper">
+                <table id="statistics">
+                    <tbody>
+                        <tr>
+                            <th>Paragraphs</th>
+                            <td>{{ paragraphNum }}</td>
+                        </tr>
+                        <tr>
+                            <th>Sentences</th>
+                            <td>{{ sentenceNum }}</td>
+                        </tr>
+                        <tr>
+                            <th>Words</th>
+                            <td>{{ wordNum }}</td>
+                        </tr>
+                        <tr>
+                            <th>Characters (with spaces)</th>
+                            <td>{{ charNum }}</td>
+                        </tr>
+                        <tr>
+                            <th>Letters</th>
+                            <td>{{ letterNum }}</td>
+                        </tr>
+                        <tr>
+                            <th>Longest Word</th>
+                            <td>{{ longestWord }}</td>
+                        </tr>
+                        <tr>
+                            <th>Most Common Character</th>
+                            <td>{{ commonChar.char }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <table id="char-graph">
                 <tr>

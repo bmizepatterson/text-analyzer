@@ -3,11 +3,7 @@ new Vue({
     el: "#app",
 
     data: {
-        input: '',
-        commonChar: {
-            char: '',
-            num: 0
-        }
+        input: ''
     },
 
     computed: {
@@ -44,6 +40,23 @@ new Vue({
 
         lowerCaseInput: function() {
             return this.input.toLowerCase();
+        },
+
+        commonChar: function() {
+            if (this.input) {
+                // Gather all letter frequencies and find the max
+                const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+                let lengths = [];
+                for (let i = 0; i < alphabet.length; i++) {
+                    lengths.push(this.count(new RegExp(alphabet[i], 'g'), true));
+                }
+                let max = Math.max(...lengths);
+                return {
+                    char: alphabet[lengths.indexOf(max)],
+                    num:  max
+                };
+            }
+            return { char: '', num: 0 };
         }
     },
 
@@ -65,11 +78,7 @@ new Vue({
             if (this.input) {
                 let regex = new RegExp(letter, 'g');
                 let count = this.count(regex, true);
-                if (count > this.commonChar.num) {
-                    this.commonChar.char = letter;
-                    this.commonChar.num = count;
-                }
-                let result = Math.floor(count / this.letterNum * 100);
+                let result = Math.floor(count / this.commonChar.num * 100);
                 return result;
             }
             return 0;

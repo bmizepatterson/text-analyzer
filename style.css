@@ -25,6 +25,11 @@ textarea {
     padding: 20px;
 }
 
+.wrapper {
+    max-width: 100%;
+    overflow-x: scroll;
+}
+
 #statistics {
     width: 100%;
     padding: 1rem;
@@ -32,6 +37,7 @@ textarea {
     border-collapse: collapse;
     line-height: 2;
     vertical-align: middle;
+    white-space: pre;
 }
 
 #statistics tr:hover {
@@ -54,11 +60,13 @@ textarea {
     height: 200px;
     width: 100%;
     border: 1px solid #ccc;
+    border-collapse: collapse;
 }
 
 #char-graph th {
     height: 1rem;
-    font-size: 0.8rem;
+    width: 3.8%;
+    font-size: 12px;
     text-align: center;
     cursor: default;
 }
@@ -73,6 +81,7 @@ textarea {
     height: 0;
     width: 100%;
     vertical-align: bottom;
+    transition: 0.75s;
 }
 
 [v-cloak] {
