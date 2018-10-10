@@ -3,6 +3,7 @@ new Vue({
     el: "#app",
 
     data: {
+
         input: '',
         alphabet: 'abcdefghijklmnopqrstuvwxyz',
         tweenedParagraphNum: 0,
@@ -13,6 +14,7 @@ new Vue({
     },
 
     computed: {
+
         paragraphNum: function() {
             if (this.input) {
                 return this.count(/.\n/g) + 1;
@@ -86,6 +88,7 @@ new Vue({
     },
 
     watch: {
+
         paragraphNum: function(newValue) {
             TweenLite.to(this.$data, 0.5, { tweenedParagraphNum: newValue });
         },
@@ -108,9 +111,10 @@ new Vue({
     },
 
     methods: {
-        update: _.debounce(function(event) {
+
+        update: function(event) {
             this.input = event.target.value;
-        }, 300),
+        },
 
         count: function(regex, lowerCase = false) {
             return this.search(regex, lowerCase).length;
