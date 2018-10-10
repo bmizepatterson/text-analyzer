@@ -50,7 +50,7 @@
             <table id="char-graph">
                 <tr>
                     <td v-for="letter in alphabet">
-                        <span v-bind:style="{ height: letterRatio(letter) + '%' }">&nbsp;</span>
+                        <span class="bar" v-bind:style="{ height: letterRatio(letter) + '%' }">&nbsp;</span>
                     </td>
                 </tr>
                 <tr>

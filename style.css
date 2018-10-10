@@ -73,15 +73,21 @@ textarea {
 
 #char-graph td {
     vertical-align: bottom;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0;
 }
 
-#char-graph span {
+#char-graph .bar {
     display:inline-block;
     background-color:green;
     height: 0;
     width: 100%;
     vertical-align: bottom;
-    transition: 0.75s;
+    transition: height 0.75s, background-color 0.2s;
+}
+
+#char-graph td:hover .bar {
+    background-color: #0f570f;
 }
 
 [v-cloak] {
