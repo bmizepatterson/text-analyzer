@@ -133,6 +133,7 @@ new Vue({
         },
 
         search: function(regex, lowerCase = false) {
+            // Wrapper around String.match() so that it returns [] if no match
             let searchText = lowerCase ? this.lowerCaseInput : this.input;
             return (searchText || '').match(regex) || [];
         },
