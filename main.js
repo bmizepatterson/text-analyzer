@@ -70,20 +70,32 @@ new Vue({
             return this.input.toLowerCase();
         },
 
-        commonChar: function() {
+        letterFrequencies: function() {
+            // Calculate the number of times each letter of the alphabet appears in the input
+            let frequencies = {};
+
             if (this.input) {
-                // Gather all letter frequencies and find the max
-                let lengths = [];
                 for (let i = 0; i < this.alphabet.length; i++) {
-                    lengths.push(this.count(new RegExp(this.alphabet[i], 'g'), true));
+                    let letter = this.alphabet[i];
+                    frequencies[letter] = this.count(new RegExp(letter, 'g'), true);
                 }
-                let max = Math.max(...lengths);
-                return {
-                    char: this.alphabet[lengths.indexOf(max)],
-                    num:  max
-                };
             }
-            return { char: '', num: 0 };
+            return frequencies;
+        },
+
+        commonChar: function() {
+            // Loop through letterFrequencies and find the letter with the greatest frequency
+            let commonChar = { char: '', num: 0 };
+
+            if (this.input) {
+                for (let letter in this.letterFrequencies) {
+                    if (this.letterFrequencies[letter] > commonChar.num) {
+                        commonChar.char = letter;
+                        commonChar.num = this.letterFrequencies[letter];
+                    }
+                }
+            }
+            return commonChar;
         }
     },
 
@@ -126,13 +138,11 @@ new Vue({
         },
 
         letterRatio: function(letter) {
+            let ratio = 0;
             if (this.input) {
-                let regex = new RegExp(letter, 'g');
-                let count = this.count(regex, true);
-                let result = Math.floor(count / this.commonChar.num * 100);
-                return result;
+                ratio = Math.floor(this.letterFrequencies[letter] / this.commonChar.num * 100);
             }
-            return 0;
+            return ratio;
         }
     }
 });
