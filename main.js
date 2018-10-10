@@ -26,7 +26,7 @@ new Vue({
 
         sentenceNum: function() {
             // TODO: Improperly matches abbreviations.
-            return this.count(/\s+[A-Za-z,;'\"\s]+[.?!]/gm);
+            return this.count(/["']?[A-Z][^.?!]+((?![.?!]['"]?\s["']?[A-Z][^.?!]).)+[.?!'"]+/gm);// old regex: /\s+[A-Za-z,;'\"\s]+[.?!]/gm
         },
 
         animatedSentenceNum: function() {
