@@ -49,60 +49,12 @@
 
             <table id="char-graph">
                 <tr>
-                    <td><span v-bind:style="{ height: letterRatio('a') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('b') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('c') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('d') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('e') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('f') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('g') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('h') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('i') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('j') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('k') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('l') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('m') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('n') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('o') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('p') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('q') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('r') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('s') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('t') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('u') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('v') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('w') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('x') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('y') + '%' }">&nbsp;</span></td>
-                    <td><span v-bind:style="{ height: letterRatio('z') + '%' }">&nbsp;</span></td>
+                    <td v-for="letter in alphabet">
+                        <span v-bind:style="{ height: letterRatio(letter) + '%' }">&nbsp;</span>
+                    </td>
                 </tr>
                 <tr>
-                    <th>A</th>
-                    <th>B</th>
-                    <th>C</th>
-                    <th>D</th>
-                    <th>E</th>
-                    <th>F</th>
-                    <th>G</th>
-                    <th>H</th>
-                    <th>I</th>
-                    <th>J</th>
-                    <th>K</th>
-                    <th>L</th>
-                    <th>M</th>
-                    <th>N</th>
-                    <th>O</th>
-                    <th>P</th>
-                    <th>Q</th>
-                    <th>R</th>
-                    <th>S</th>
-                    <th>T</th>
-                    <th>U</th>
-                    <th>V</th>
-                    <th>W</th>
-                    <th>X</th>
-                    <th>Y</th>
-                    <th>Z</th>
+                    <th v-for="letter in alphabet">{{ letter.toUpperCase() }} </th>
                 </tr>
             </table>
 
