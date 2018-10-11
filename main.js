@@ -87,7 +87,7 @@ new Vue({
             // Calculate the number of times each letter of the alphabet appears in the input
             let frequencies = {};
 
-            if (this.input) {
+            if (this.inputEntered) {
                 for (let i = 0; i < this.alphabet.length; i++) {
                     let letter = this.alphabet[i];
                     frequencies[letter] = this.count(new RegExp(letter, 'g'), true);
@@ -100,7 +100,7 @@ new Vue({
             // Loop through letterFrequencies and find the letter with the greatest frequency
             let commonChar = { char: '', num: 0 };
 
-            if (this.input) {
+            if (this.inputEntered) {
                 for (let letter in this.letterFrequencies) {
                     if (this.letterFrequencies[letter] > commonChar.num) {
                         commonChar.char = letter;
@@ -109,6 +109,10 @@ new Vue({
                 }
             }
             return commonChar;
+        },
+
+        inputEntered: function() {
+            return this.input != "\n";
         }
     },
 
@@ -130,7 +134,7 @@ new Vue({
 
         letterRatio: function(letter) {
             let ratio = 0;
-            if (this.input) {
+            if (this.inputEntered) {
                 ratio = Math.floor(this.letterFrequencies[letter] / this.commonChar.num * 100);
             }
             return ratio;
