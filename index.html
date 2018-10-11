@@ -17,23 +17,23 @@
                     <tbody>
                         <tr>
                             <th>Paragraphs</th>
-                            <td>{{ animatedParagraphNum }}</td>
+                            <td><animated-integer v-bind:value="paragraphNum"></animated-integer></td>
                         </tr>
                         <tr>
                             <th>Sentences</th>
-                            <td>{{ animatedSentenceNum }}</td>
+                            <td><animated-integer v-bind:value="sentenceNum"></animated-integer></td>
                         </tr>
                         <tr>
                             <th>Words</th>
-                            <td>{{ animatedWordNum }}</td>
+                            <td><animated-integer v-bind:value="wordNum"></animated-integer></td>
                         </tr>
                         <tr>
                             <th>Characters (with spaces)</th>
-                            <td>{{ animatedCharNum }}</td>
+                            <td><animated-integer v-bind:value="charNum"></animated-integer></td>
                         </tr>
                         <tr>
                             <th>Letters</th>
-                            <td>{{ animatedLetterNum }}</td>
+                            <td><animated-integer v-bind:value="letterNum"></animated-integer></td>
                         </tr>
                         <tr>
                             <th>Longest Word</th>
@@ -61,7 +61,7 @@
         </div>
 
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenLite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="main.js"></script>
 </body>

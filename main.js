@@ -1,3 +1,41 @@
+Vue.component("animated-integer", {
+
+    template: "<span>{{ tweenValue }}</span>",
+
+    props: {
+        value: {
+            type: Number,
+            required: true
+        }
+    },
+
+    data: function() {
+        return {
+            tweenValue: 0
+        }
+    },
+
+    watch: {
+        value: function(newValue, oldValue) {
+            this.tween(oldValue, newValue);
+        }
+    },
+
+    mounted: function() {
+        this.tween(0, this.value);
+    },
+
+    methods: {
+        tween: function(startValue, endValue) {
+            let vm = this;
+            TweenLite.to(vm.$data, 0.5, { tweenValue: endValue,
+                onUpdate: function () {
+                vm.$data.tweenValue = Math.ceil(vm.$data.tweenValue);
+            }, });
+        }
+    }
+})
+
 new Vue({
 
     el: "#app",
@@ -5,12 +43,7 @@ new Vue({
     data: {
 
         input: '',
-        alphabet: 'abcdefghijklmnopqrstuvwxyz',
-        tweenedParagraphNum: 0,
-        tweenedSentenceNum: 0,
-        tweenedWordNum: 0,
-        tweenedCharNum: 0,
-        tweenedLetterNum: 0
+        alphabet: 'abcdefghijklmnopqrstuvwxyz'
     },
 
     computed: {
@@ -22,41 +55,21 @@ new Vue({
             return 0;
         },
 
-        animatedParagraphNum: function() {
-            return this.tweenedParagraphNum.toFixed(0);
-        },
-
         sentenceNum: function() {
             // TODO: Improperly matches abbreviations.
             return this.count(/["']?[A-Z][^.?!]+((?![.?!]['"]?\s["']?[A-Z][^.?!]).)+[.?!'"]+/gm);// old regex: /\s+[A-Za-z,;'\"\s]+[.?!]/gm
-        },
-
-        animatedSentenceNum: function() {
-            return this.tweenedSentenceNum.toFixed(0);
         },
 
         wordNum: function() {
             return this.count(/[\w']+/g);
         },
 
-        animatedWordNum: function() {
-            return this.tweenedWordNum.toFixed(0);
-        },
-
         charNum: function() {
             return this.count(/./g);
         },
 
-        animatedCharNum: function() {
-            return this.tweenedCharNum.toFixed(0);
-        },
-
         letterNum: function() {
             return this.count(/[A-Za-z]/g);
-        },
-
-        animatedLetterNum: function() {
-            return this.tweenedLetterNum.toFixed(0);
         },
 
         longestWord: function() {
@@ -96,29 +109,6 @@ new Vue({
                 }
             }
             return commonChar;
-        }
-    },
-
-    watch: {
-
-        paragraphNum: function(newValue) {
-            TweenLite.to(this.$data, 0.5, { tweenedParagraphNum: newValue });
-        },
-
-        sentenceNum: function(newValue) {
-            TweenLite.to(this.$data, 0.5, { tweenedSentenceNum: newValue });
-        },
-
-        wordNum: function(newValue) {
-            TweenLite.to(this.$data, 0.5, { tweenedWordNum: newValue });
-        },
-
-        charNum: function(newValue) {
-            TweenLite.to(this.$data, 0.5, { tweenedCharNum: newValue });
-        },
-
-        letterNum: function(newValue) {
-            TweenLite.to(this.$data, 0.5, { tweenedLetterNum: newValue });
         }
     },
 
