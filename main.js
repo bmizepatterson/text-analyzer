@@ -50,7 +50,7 @@ new Vue({
 
         paragraphNum: function() {
             if (this.input) {
-                return this.count(/.\n/g) + 1;
+                return this.count(/.\n/g);
             }
             return 0;
         },
@@ -115,7 +115,7 @@ new Vue({
     methods: {
 
         update: function(event) {
-            this.input = event.target.value;
+            this.input = event.target.value + "\n";
         },
 
         count: function(regex, lowerCase = false) {
