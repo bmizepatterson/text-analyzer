@@ -30,8 +30,9 @@ Vue.component("animated-integer", {
             let vm = this;
             TweenLite.to(vm.$data, 0.5, { tweenValue: endValue,
                 onUpdate: function () {
-                vm.$data.tweenValue = Math.ceil(vm.$data.tweenValue);
-            }, });
+                    vm.$data.tweenValue = Math.ceil(vm.$data.tweenValue);
+                },
+            });
         }
     }
 })
